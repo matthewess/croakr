@@ -16,3 +16,20 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+#main-header {
+  padding-top: 10px;
+}
+
+body {
+  margin-bottom: 40px;
+}
+
+#main-footer {
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  background-color: #f8f8f8;
+  width: 100%;
+  padding-top: 10px;
+}
