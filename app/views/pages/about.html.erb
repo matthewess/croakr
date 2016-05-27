@@ -4,4 +4,4 @@
   <p>this is croakr, a free and simple microblogging system. happy croaking!</p>
   <%= link_to "sign up!", signup_path, class: 'btn btn-lg btn-primary' %>
 </div>
-<%= console %>
+<%= console if Rails.env.development? %>
