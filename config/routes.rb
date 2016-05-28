@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about'
   get 'home' => 'pages#home'
 
-  get 'signin' => 'sessions#new'
-  post 'signin' => 'sessions#create'
-  delete 'signout' => 'sessions#destroy'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
   
   get 'signup' => 'users#new'
   resources :users

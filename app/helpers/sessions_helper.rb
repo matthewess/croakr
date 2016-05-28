@@ -10,7 +10,7 @@ module SessionsHelper
   end
 
   #test whether a user is logged in
-  def signed_in?
+  def logged_in?
     !current_user.nil?
   end
 end
