@@ -1,0 +1,10 @@
+<% provide :title, "users of croakr" %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="list-group">
+      <% @users.each do |user| %>
+        <%= link_to user.name, user, class: "list-group-item" %>
+      <% end %>
+    </div>
+  </div>
+</div>

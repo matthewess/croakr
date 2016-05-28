@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
-  before_action :confirm_logged_in, only: [:edit, :update]
+  before_action :confirm_logged_in, only: [:index, :edit, :update]
   before_action :confirm_proper, only: [:edit, :update]
+
+  #set all users
+  def index
+    @users = User.all
+  end
 
   #spot for new user
   def new
