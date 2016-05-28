@@ -1,1 +1,6 @@
-<%= link_to user.name, user, class: "list-group-item" %>
+<li class="list-group-item">
+<%= link_to user.name, user %>
+<% if current_user.admin? && !user.admin? %>
+  | <%= link_to "delete", user, method: :delete, data: { confirm: "you sure?" } %>
+<% end %>
+</li>

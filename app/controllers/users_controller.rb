@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :confirm_logged_in, only: [:index, :edit, :update]
-  before_action :confirm_proper, only: [:edit, :update]
+  before_action :confirm_logged_in, only: [:index, :edit, :update, :destroy]
+  before_action :confirm_matching, only: [:edit, :update]
+  before_action :confirm_admin, only: :destroy
 
   #set all users
   def index
@@ -42,6 +43,13 @@ class UsersController < ApplicationController
     end
   end
 
+  #delete a user
+  def destroy
+    @user = User.find(params[:id]).destroy
+    flash[:success] = "user deleted."
+    redirect_to users_path
+  end
+
   private
     #filter proper user params
     def user_params
@@ -57,9 +65,14 @@ class UsersController < ApplicationController
       end
     end
 
-    #confirm user is proper user for action
-    def confirm_proper
+    #confirm user is matching user for action
+    def confirm_matching
       @user = User.find(params[:id])
       redirect_to root_path unless current_user? @user
+    end
+
+    #confirm user is an admin
+    def confirm_admin
+      redirect_to root_path unless current_user.admin?
     end
 end
