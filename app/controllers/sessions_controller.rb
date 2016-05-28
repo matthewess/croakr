@@ -2,10 +2,11 @@ class SessionsController < ApplicationController
   def new
   end
 
+  #create a new session if valid
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      signin user
+      log_in user
       redirect_to user
     else
       flash.now[:danger] = "invalid login."
@@ -13,6 +14,9 @@ class SessionsController < ApplicationController
     end
   end
 
+  #destroy current session and log out current user, redirecting to root
   def destroy
+    log_out
+    redirect_to root_url
   end
 end
