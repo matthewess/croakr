@@ -48,6 +48,9 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 #12 factor
 gem 'rails_12factor', group: :production
+#slim
+gem 'slim'
+gem 'slim-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
