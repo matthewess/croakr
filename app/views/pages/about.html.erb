@@ -2,5 +2,9 @@
 <div class="jumbotron text-center">
   <h1>welcome!</h1>
   <p>this is croakr, a free and simple microblogging system. happy croaking!</p>
-  <%= link_to "sign up!", signup_path, class: 'btn btn-lg btn-primary' unless logged_in? %>
+  <% if logged_in? %>
+    <%= link_to "see who's on croakr", users_path %>
+  <% else %>
+    <%= link_to "sign up!", signup_path, class: 'btn btn-lg btn-primary' %>
+  <% end %>
 </div>
