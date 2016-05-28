@@ -10,4 +10,13 @@ module ApplicationHelper
     end
   end
 
+  #generate an active class for the active nav link, otherwise empty class
+  def active_navbar_class(page_path)
+    current_page?(page_path) ? "active" : ""
+  end
+
+  #generate a navbar element for a specific path and label
+  def navbar_element(title, page_path, method="")
+    content_tag :li, link_to(title, page_path, method: method), class: active_navbar_class(page_path)
+  end
 end

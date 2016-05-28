@@ -11,16 +11,16 @@
     </div>
     <div class="collapse navbar-collapse" id="navbar-main">
       <ul class="nav navbar-nav">
-        <li><%= link_to "home", home_path %></li>
-        <li><%= link_to "about", about_path %></li>
+        <%= navbar_element "home", home_path %>
+        <%= navbar_element "about", about_path %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <li><%= link_to "profile", current_user %></li>
-          <li><%= link_to "settings", edit_user_path(current_user) %></li>
-          <li><%= link_to "log out", logout_path, method: "delete" %></li>
+          <%= navbar_element "profile", current_user %>
+          <%= navbar_element "settings", edit_user_path(current_user) %>
+          <%= navbar_element "log out", logout_path, "delete" %>
         <% else %>
-          <li><%= link_to "log in", login_path %></li>
+          <%= navbar_element "log in", login_path %>
         <% end %>
       </ul>
     </div>
