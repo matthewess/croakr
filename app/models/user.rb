@@ -15,19 +15,30 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
 
   # hash digest for a string
-  def User.digest(string) {
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine::cost
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
-  }
+  end
 
   # get a new token for creating a new remember_token on log in
   def User.new_token
     SecureRandom.urlsafe_base64
   end
 
-  # set the remember_digest in the model until next log in
+  #set the remember_digest in the model until next log in
   def remember
     self.remember_token = User.new_token
-    update_attribute :remember_digest, User.digest(remember_token)
+    self.update_attribute :remember_digest, User.digest(remember_token)
+  end
+
+  #clear remember_digest
+  def forget
+    self.update_attribute :remember_digest, nil
+  end
+
+  # returns whether the user is authenticated with a valid remember_token from the session cookie
+  def authenticated?(remember_token)
+    return false if self.remember_digest.nil?
+    BCrypt::Password.new(self.remember_digest).is_password?(remember_token)
   end
 end
