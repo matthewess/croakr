@@ -18,12 +18,17 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-#main-header {
-  padding-top: 10px;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 body {
   margin-bottom: 40px;
+}
+
+#main-header {
+  padding-top: 10px;
 }
 
 #main-footer {
