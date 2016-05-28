@@ -1,20 +1,9 @@
 <% provide :title, "sign up" %>
+<% provide :button_text, "create my account" %>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h1>sign up</h1>
     <br>
-    <%= bootstrap_form_for @user do |f| %>
-      <%= render 'shared/errors' %>
-
-      <%= f.text_field :name, label: "name" %>
-
-      <%= f.email_field :email, label: "email" %>
-
-      <%= f.password_field :password, label: "password" %>
-
-      <%= f.password_field :password_confirmation, label: "confirm password" %>
-
-      <%= f.submit "create account", class: "btn btn-primary btn-user" %>
-    <% end %>
+    <%= render 'form' %>
   </div>
 </div>
