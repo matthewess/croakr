@@ -46,6 +46,8 @@ gem 'pg'
 #pagination
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+#12 factor
+gem 'rails_12facter', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
