@@ -24,6 +24,7 @@ html {
 }
 
 body {
+  margin-top: 60px;
   margin-bottom: 40px;
 }
 
@@ -42,4 +43,27 @@ body {
 
 .btn-user {
   width: 100%;
+}
+
+.croaks {
+  list-style: none;
+  margin-left: -20px;
+  li {
+    border-top: 1px solid #aaa;
+    padding: 10px 0;
+  }
+
+  .user {
+    font-weight: bold;
+  }
+
+  .content {
+    display: block;
+    padding-left: 10px;
+    padding-top: 5px;
+  }
+
+  .timestamp {
+    padding-left: 10px;
+  }
 }

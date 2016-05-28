@@ -7,6 +7,14 @@
     </section>
   </aside>
   <div class="col-md-6">
-    <!-- messages here -->
+    <h2>croaks</h2>
+    <% if @user.croaks.any? %>
+      <%= will_paginate @croaks %>
+      <ol class="croaks">
+        <%= render @croaks %>
+      </ol>
+    <% else %>
+      <p>this user hasn't croaked yet!</p>
+    <% end %>
   </div>
 </div>

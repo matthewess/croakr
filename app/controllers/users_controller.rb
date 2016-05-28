@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   #set user based on URL param
   def show
     @user = User.find(params[:id])
+    @croaks = @user.croaks.paginate(page: params[:page], per_page: 20)
   end
 
   #sign up a new user and log in if possible
