@@ -1,6 +1,6 @@
 module SessionsHelper
   #sets session cookie (expires on browser close)
-  def signin(user)
+  def log_in(user)
     session[:user_id] = user.id
   end
 

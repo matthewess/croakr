@@ -1,5 +1,5 @@
-<% provide :title, "login" %>
-<h1>login</h1>
+<% provide :title, "log in" %>
+<h1>log in</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= bootstrap_form_for :session, url: login_path do |f| %>
@@ -7,7 +7,7 @@
 
       <%= f.password_field :password, label: "password" %>
 
-      <%= f.submit "login", class: "btn btn-primary btn-user" %>
+      <%= f.submit "log in", class: "btn btn-primary btn-user" %>
     <% end %>
     <p>no account? <%= link_to "sign up!", signup_path %></p>
   </div>
