@@ -37,11 +37,15 @@ gem 'bcrypt', '~> 3.1.7'
 #bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+#bootstrap forms
 gem 'bootstrap_form'
 #puma for server
 gem 'puma'
 #postgres for server
 gem 'pg'
+#pagination
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,6 +57,8 @@ group :development, :test do
   gem 'spring'
 
   #user gems
+  #pretty testing
   gem 'minitest-reporters', '1.0.5'
+  #fake db info
   gem 'faker'
 end
