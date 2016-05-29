@@ -1,5 +1,4 @@
 li.list-group-item
-  = link_to user.name, user
+  => link_to user.name, user
   - if current_user.admin? && !user.admin?
-    | | 
-    = link_to "delete", user, method: :delete, data: { confirm: "you sure?" }
+    | | #{link_to "delete", user, method: :delete, data: { confirm: "you sure?" }}
