@@ -1,0 +1,8 @@
+- provide :title, "about"
+.jumbotron.text-center
+  h1 welcome!
+  p this is croakr, a free and simple microblogging platform. happy croaking!
+  - if logged_in?
+    = link_to "see who's on croakr", users_path
+  - else
+    = link_to "sign up!", signup_path, class: "btn btn-lg btn-primary"

@@ -1,0 +1,6 @@
+- provide :title, "users of croakr"
+.row
+  .col-md-6.col-md-offset.3
+    = will_paginate previous_label: "prev", next_label: "next"
+    ul.list_group
+      = render @users

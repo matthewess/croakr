@@ -1,0 +1,20 @@
+nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false"
+        span.sr-only toggle nav
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      strong.navbar-brand croakr
+    #navbar-main.collapse.navbar-collapse
+      ul.nav.navbar-nav
+        = navbar_element "home", home_path
+        = navbar_element "about", about_path
+      ul.nav.navbar-nav.navbar-right
+        - if logged_in?
+          = navbar_element "profile", current_user
+          = navbar_element "settings", edit_user_path(current_user)
+          = navbar_element "log out", logout_path, "delete"
+        - else
+          = navbar_element "log in", login_path
