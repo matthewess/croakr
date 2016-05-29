@@ -6,9 +6,9 @@
       p= @user.email
   .col-md-6
     h2 croaks
-      - if @user.croaks.any?
-        = will_paginate @croaks
-        ol.croaks
-          = render @croaks
-      - else
-        p this user hasn't croaked yet!
+    - if @user.croaks.any?
+      = will_paginate @croaks
+      ol.croaks
+        = render @croaks
+    - else
+      p this user hasn't croaked yet!

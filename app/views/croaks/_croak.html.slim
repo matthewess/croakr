@@ -1,4 +1,4 @@
 li id="croak-#{croak.id}"
   span.user= link_to croak.user.name, croak.user
   span.content= croak.content
-  span.timestampt.text-muted #{time_ago_in_words(croak.created_at)} ago
+  span.timestamp.text-muted #{time_ago_in_words(croak.created_at)} ago
