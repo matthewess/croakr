@@ -1,14 +1,11 @@
 - provide :title, @user.name
 .row
-  aside.col-md-3
-    section.sidebar
-      h2= @user.name
-      p= @user.email
+  = render 'shared/sidebar'
   .col-md-6
     h2 croaks
-    - if @user.croaks.any?
-      = will_paginate @croaks
-      ol.croaks
+    ol.croaks
+      - if @user.croaks.any?
+        = will_paginate @croaks
         = render @croaks
-    - else
-      p this user hasn't croaked yet!
+      - else
+        li.empty-feed this user hasn't croaked yet!

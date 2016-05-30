@@ -1,1 +1,18 @@
-h1 home
+.row
+  .col-md-6.col-md-offset-3
+    h1 home
+- if logged_in?
+  .row
+    = render 'shared/sidebar'
+    .col-md-6
+      .croak-form
+        = bootstrap_form_for @croak do |f|
+          = render 'shared/errors', object: f.object
+          = f.text_area :content, label: "new croak", placeholder: "what's croakin on?"
+          = f.primary "croak!"
+      ol.croaks
+        - if @feed_items.any?
+          = will_paginate @feed_items
+          = render @feed_items
+        - else
+          li.empty-feed your feed is empty :(

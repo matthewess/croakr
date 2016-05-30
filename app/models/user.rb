@@ -27,6 +27,11 @@ class User < ActiveRecord::Base
     SecureRandom.urlsafe_base64
   end
 
+  #generate the feed of croaks for a user
+  def feed
+    Croak.where("user_id = ?", self.id)
+  end
+
   #set the remember_digest in the model until next log in
   def remember
     self.remember_token = User.new_token
