@@ -66,4 +66,6 @@ group :development, :test do
   gem 'minitest-reporters', '1.0.5'
   #fake db info
   gem 'faker'
+  #n+1 detection
+  gem 'bullet'
 end
