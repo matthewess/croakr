@@ -23,7 +23,7 @@ class CroaksController < ApplicationController
   private
     #filter url paramaters for croak creation
     def croak_params
-      params.require(:croak).permit(:content)
+      params.require(:croak).permit(:content, :picture)
     end
 
     #confirm user matches croak id

@@ -6,10 +6,12 @@
     = render 'shared/sidebar'
     .col-md-6
       .croak-form
-        = bootstrap_form_for @croak do |f|
+        = bootstrap_form_for @croak, html: { multipart: true } do |f|
           = render 'shared/errors', object: f.object
           = f.text_area :content, label: "new croak", placeholder: "what's croakin on?"
           = f.primary "croak!"
+          .picture
+            = f.file_field :picture
       ol.croaks
         - if @feed_items.any?
           = will_paginate @feed_items

@@ -1,6 +1,8 @@
 li id="croak-#{croak.id}"
   span.user= link_to croak.user.name, croak.user
-  span.content= croak.content
+  span.content
+    = croak.content
+    = image_tag croak.picture.url if croak.picture?
   span.timestamp.text-muted> #{time_ago_in_words(croak.created_at)} ago
   - if croak.user == current_user
     | | #{link_to "delete", croak, method: :delete, data: { confirm: "you sure?" }}
