@@ -5,4 +5,13 @@ class Croak < ActiveRecord::Base
   validates :content, presence: true,
       length: { maximum: 140 }
   mount_uploader :picture, PictureUploader
+  validate :picture_size
+
+  private
+    #picture size validation
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:picture, "should be less than 5MB")
+      end
+    end
 end

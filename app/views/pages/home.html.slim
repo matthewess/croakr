@@ -11,10 +11,19 @@
           = f.text_area :content, label: "new croak", placeholder: "what's croakin on?"
           = f.primary "croak!"
           .picture
-            = f.file_field :picture
+            = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png'
       ol.croaks
         - if @feed_items.any?
           = will_paginate @feed_items
           = render @feed_items
         - else
           li.empty-feed your feed is empty :(
+
+javascript:
+  $('#croak_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size / 1024 / 1024;
+    if (size_in_megabytes > 5) {
+      alert('max file size is 5MB, please choose a different file.');
+      $('#croak_picture').val("");
+    }
+  });
