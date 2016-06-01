@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
   #generate the feed of croaks for a user
   def feed
-    Croak.where("user_id = ?", self.id)
+    Croak.where("user_id = ?", self.id).includes(:user)
   end
 
   #set the remember_digest in the model until next log in
