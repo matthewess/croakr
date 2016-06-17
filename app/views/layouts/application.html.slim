@@ -9,6 +9,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = render 'layouts/shiv'
+    = render 'layouts/analytics' if Rails.env.production?
   body
     header#main-header.header
       = render 'layouts/navbar'
